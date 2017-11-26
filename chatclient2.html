@@ -8,7 +8,7 @@
 	<script src="/socket.io/socket.io.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
   </head>
-  <body>
+  <body style="background-color: #F8F9F9;">
 	
 	<script>
 		var socket;
@@ -25,14 +25,14 @@
 
 	
 				// Callbacks for standard socket.io server events
-	        	socket.on('connect', function(){ $('#status').html('Connected to Server'); });
-	        	socket.on('disconnect', function(){ $('#status').html('Disconnected from Server'); });
+	        	socket.on('connect', function(){ $('#status').html('Connected to Server').css('color', 'green'); });
+	        	socket.on('disconnect', function(){ $('#status').html('Disconnected from Server').css('color', 'red'); });
 	        	socket.on('reconnecting', function( nextRetry ){ $('#status').html('Reconnecting in ' + nextRetry + ' milliseconds');  });
 	        	socket.on('reconnect_failed', function(){ $('#status').html('Reconnect Failed'); });
 
 	        	// Callback for the 'chat' event we have defined
 	        	socket.on('chat', function (client, message) { 
-		 			$('#messages').append('<b> Client '+ message.msgUser + ' says:</b> ' + message.msgText + '<br>');
+		 			$('#messages').append('<b> Client '+ message.msgUser + ' says:</b> ' + message.msgText + '<br>').css('color', '#3b5998');
 				});
 				
 				firstconnect = false;

@@ -34,7 +34,7 @@ send404 = function(res){
     res.end();
 };
 
-server.listen(5000);
+server.listen(3000);
 console.log("Server running at http://127.0.0.1:18080/");
 
 var io = require('socket.io').listen(server);

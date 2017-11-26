@@ -49,8 +49,12 @@ io.sockets.on('connection', function(socket){
 	});
 	
 	//receive message
+	var msg = {
+		msgText:"",
+		msgUser:""
+	};
 	socket.on('message', function(message){
-		console.log("Received " + message + "  -  from client  " +  socket.id);
+		console.log("Received " + message.msgText + "  -  from client  " + message.msgUser + " on socket " +  socket.id);
 		//relay message
 		io.sockets.emit('chat', socket.id, message);
 	});

@@ -8,7 +8,6 @@ var http = require('http')
 server = http.createServer(function(req, res){
 // parse the pathname as a url
 var path = url.parse(req.url).pathname;
-var port = process.env.PORT || 3000;
                    
 switch (path){
     
@@ -35,6 +34,7 @@ send404 = function(res){
     res.end();
 };
 
+var port = process.env.PORT || 3000;
 server.listen(port);
 console.log("Server running at http://127.0.0.1:18080/");
 

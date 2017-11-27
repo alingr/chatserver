@@ -4,7 +4,7 @@
 <html>
   <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-    	<title>Socket.io Chat</title>
+    <title>Socket.io Chat</title>
 	<script src="/socket.io/socket.io.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
   </head>
@@ -19,6 +19,9 @@
 			if(username.length == 0){
 				username = "Guest";
 			}
+			$('#registerUsername').css('visibility', 'hidden');
+			$('#welcome').html('Welcome ' + "<b>" + username + "</b>" + "!").css('visibility', 'visible');
+			$('#chat').css('visibility', 'visible');
 			if(firstconnect) {
 	        	socket = io.connect(null);
 				
@@ -61,17 +64,19 @@
 	<h1>Socket.io Chat</h1>
 	<div><p id="status">Waiting for input</p></div>
 	
-	<br>Please enter your username: 
-	<br><input id="username"></input><br>
-	<div id="errorMessage"></input>
+	<div id="welcome" style="visibility:hidden">Welcome</div>
+	<div id="registerUsername" style="visibility:visible"><br>Please enter your username: <input id="username"></input><br></div>
 	
 	<button id="connect" onClick='connect()'/>Connect</button>
 	<button id="disconnect" onClick='disconnect()'>Disconnect</button><br><br>
+
+	<div id="chat" style="visibility:hidden">
 	<input id="message"></input>
 	<button id="send" onClick='send()'/>Send Message</button>
 	<br>
 	<br>Messages:<br><br>
 	<div id="messages"></div>
+	</div>
 
   </body>
 </html>

@@ -35,7 +35,7 @@
 
 	        	// Callback for the 'chat' event we have defined
 	        	socket.on('chat', function (client, message) { 
-		 			$('#messages').append('<b> Client '+ message.msgUser + ' says:</b> ' + message.msgText + '<br>').css('color', '#3b5998');
+		 			$('#messages').append('<b>'+ message.msgUser + ' says:</b> ' + message.msgText + '<br>').css('color', '#3b5998');
 				});
 				
 				firstconnect = false;
